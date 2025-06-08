@@ -49,4 +49,92 @@
     <h3>Combat Sports</h3>
     <div class="gallery">
       <img src="images/combat1.jpg" alt="Combat 1" />
-      <img
+      <img src="images/combat2.jpg" alt="Combat 2" />
+      <img src="images/combat3.jpg" alt="Combat 3" />
+      <img src="images/combat4.jpg" alt="Combat 4" />
+      <img src="images/combat5.jpg" alt="Combat 5" />
+      <img src="images/combat6.jpg" alt="Combat 6" />
+      <img src="images/combat7.jpg" alt="Combat 7" />
+      <img src="images/combat8.jpg" alt="Combat 8" />
+      <img src="images/combat9.jpg" alt="Combat 9" />
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <h3>Meet Dominik — Your Moment Capturer</h3>
+      <p>
+        My name is Dominik, and I’m passionate about capturing your moments.  
+        With a keen eye for moody, artistic photography, I aim to freeze emotions and stories that last forever.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="content">
+    <h3>Let’s Capture Your Story Together</h3>
+    <p>
+      Every moment tells a story, and I’d love to help tell yours through my lens.  
+    </p>
+    <p>
+      <strong>Email:</strong> <a href="mailto:nadoframes@gmail.com">nadoframes@gmail.com</a><br />
+      <strong>Instagram:</strong> <a href="https://instagram.com/nadoframes" target="_blank" rel="noopener">@nadoframes</a>
+    </p>
+  </section>
+
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="Expanded image" />
+  </div>
+
+  <footer>
+    &copy; 2025 NADOFRAMES | Photography by Dominik
+  </footer>
+
+  <script>
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+      document.body.style.overflow = 'auto';
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Scroll animation for about section
+    document.addEventListener('DOMContentLoaded', () => {
+      const aboutSection = document.querySelector('.about-section');
+
+      function checkVisibility() {
+        const rect = aboutSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        if (rect.top <= windowHeight * 0.8) {
+          aboutSection.classList.add('visible');
+          window.removeEventListener('scroll', checkVisibility);
+        }
+      }
+
+      window.addEventListener('scroll', checkVisibility);
+      checkVisibility();
+    });
+  </script>
+</body>
+</html>
