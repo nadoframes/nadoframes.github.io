@@ -188,5 +188,18 @@ footer {
   color: #c7d9c7;
   max-width: 600px;
   margin: 0 auto;
+  /* Initial state: hidden and shifted down */
+.about-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When visible: fade in and slide up */
+.about-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 }
 }
