@@ -61,4 +61,19 @@
       });
     });
 
-    lightboxClose.addEventListener('click', () =>
+    lightboxClose.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+      document.body.style.overflow = 'auto';
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+</html>
