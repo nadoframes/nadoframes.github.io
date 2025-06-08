@@ -24,10 +24,10 @@
   <section id="gallery" class="gallery">
     <img src="images/photo1.jpg" alt="Portfolio photo 1" data-full="images/photo1.jpg" />
     <img src="images/photo2.jpg" alt="Portfolio photo 2" data-full="images/photo2.jpg" />
-    <img src="images/DSC09840.jpg" alt="Portfolio photo 3" data-full="images/DSC09840.jpg" />
-    <img src="images/DSC06975.jpg" alt="Portfolio photo 3" data-full="images/DSC06975.jpg" />
-    <img src="images/DSC06975.jpg" alt="Portfolio photo 3" data-full="images/DSC06975.jpg" />
-    <!-- Add more photos here -->
+    <img src="images/photo3.jpg" alt="Portfolio photo 3" data-full="images/photo3.jpg" />
+    <img src="images/photo4.jpg" alt="Portfolio photo 4" data-full="images/photo4.jpg" />
+    <img src="images/photo5.jpg" alt="Portfolio photo 5" data-full="images/photo5.jpg" />
+    <!-- Add more images as needed -->
   </section>
 
   <section id="bio" class="content">
@@ -38,11 +38,44 @@
   <section id="contact" class="content">
     <h3>Contact</h3>
     <p>Email: <a href="mailto:nadoframes@gmail.com">nadoframes@gmail.com</a></p>
-    <p>Instagram: <a href="https://instagram.com/nadoframes" target="_blank" rel="noopener">@nadoframes</a></p>
+    <p>Instagram: <a href="https://instagram.com/nadoframes" target="_blank">@nadoframes</a></p>
   </section>
 
-  <!-- Lightbox Overlay -->
   <div id="lightbox" class="lightbox">
     <span class="lightbox-close">&times;</span>
-    <img class="lightbox-img" src="" alt="Full size image" />
-  </div
+    <img class="lightbox-img" src="" alt="Full size" />
+  </div>
+
+  <footer>
+    &copy; 2025 NADOFRAMES | Photography by Dominik
+  </footer>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.dataset.full || img.src;
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+      document.body.style.overflow = 'auto';
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+</html>
